@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Data
@@ -22,6 +19,9 @@ public class Employee {
 //    @NotEmpty     ---> Field shouldn't be ""        (Empty)
 //    @NotBlank     ---> Field shouldn't be "       " (Blank)
 
+    // !!! NotEmpty and NotBlank is only used with Strings !!!
+    // !!! NotNull can be used with any kind or objects.
+
 //    @NotNull    @NotNull
 //    @NotEmpty   @NotNull + @NotEmpty
 //    @NotBlank   @NotNull + @NotEmpty + @NotBlank (covers all of them)
@@ -31,10 +31,16 @@ public class Employee {
     private String firstName;
     private String lastName;
 
+//    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd") //thymeleaf accepts this format so, we need to tell LocalDate to format itself to avoid confusion
     private LocalDate birthday;
 
+//    @NotBlank
+//    @Email
     private String email;
+
+//    @NotBlank
+//    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).(4,)")
     private String password;
     private String address;
     private String address2;
