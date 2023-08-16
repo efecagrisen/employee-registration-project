@@ -29,23 +29,30 @@ public class Employee {
     @NotBlank
     @Size(max = 12,min = 2)
     private String firstName;
+
+    @NotBlank
+    @Size(max = 12,min = 2)
     private String lastName;
 
-//    @NotNull
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd") //thymeleaf accepts this format so, we need to tell LocalDate to format itself to avoid confusion
     private LocalDate birthday;
 
-//    @NotBlank
-//    @Email
+    @NotBlank
+    @Email
     private String email;
 
-//    @NotBlank
-//    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).(4,)")
+    @NotBlank
+    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).(4,)")
     private String password;
+
+    @NotBlank
     private String address;
     private String address2;
+    @NotBlank
     private String city;
     private String state;
+    @NotBlank
     private String zipCode;
 
 }
